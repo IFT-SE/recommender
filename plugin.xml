@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="IFT"
+            id="RecommendationSystem">
+      </category>
+      <view
+            name="Recommendations"
+            icon="icons/sample.gif"
+            category="RecommendationSystem"
+            class="recommendationsystem.views.RecommendationSystemView"
+            id="recommendationsystem.views.RecommendationSystemView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.TaskList"
+               relationship="right"
+               id="recommendationsystem.views.RecommendationSystemView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+      <startup
+            class="recommendationsystem.Startup"></startup>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="recommendationsystem.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            class="recommendationsystem.preferences.PreferencePage"
+            id="recommendationsystem.preferences.PreferencePage"
+            name="Recommendation System Preferences">
+      </page>
+   </extension>
+
+</plugin>
